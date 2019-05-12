@@ -37,8 +37,8 @@ const val1 = String(5);
 const val2 = 6;
 const sum = Number(val1 + val2);
 
-console.log(sum);
-console.log(typeof sum);
+// console.log(sum);
+// console.log(typeof sum);
 
 
 
@@ -70,7 +70,7 @@ val = Math.random();
 
 val = Math.floor(Math.random() * 20 + 1);
 
-console.log(val);
+// console.log(val);
 
 
 //STRING METHODS & CONCATENATION
@@ -135,7 +135,7 @@ val = str.replace('Brad', 'Jack');
 // // includes()
 val = str.includes('foo');
 
-console.log(val);
+// console.log(val);
 
 
 //TEMPLATE LITERALS
@@ -230,5 +230,49 @@ val = numbers.sort(function(x, y){
   return y - x;
 });
 
-console.log(numbers);
+// console.log(numbers);
+// console.log(val);
+
+
+//OBJECT LITERALS
+
+const person = {
+  firstName: 'Steve',
+  lastName: 'Smith',
+  age: 27,
+  email: 'steve@aol.com',
+  hobbies: ['music', 'sports'],
+  address: {
+    city: 'Miami',
+    state: 'FL'
+  },
+  getBirthYear: function(){
+    return 2019 - this.age;
+  }
+
+}
+// let val;
+
+val = person; 
+
+//Get specific value
+
+val = person.firstName;
+val = person.age;
+val = person.hobbies[1];
+val = person.address.state;
+val = person.address['city'];
+val = person.getBirthYear();
+
 console.log(val);
+
+
+const people = [
+  {name: 'John', age: 30},
+  {name: 'Mike', age: 23},
+  {name: 'Nancy', age: 23}
+];
+
+for(let i = 0; i < people.length; i++){
+  console.log(people[i].name);
+}
