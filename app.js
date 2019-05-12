@@ -77,7 +77,7 @@ console.log(val);
 
 const firstName = 'William';
 const lastName = 'Johnson';
-const age = 36;
+// const age = 36;
 const str = 'Hello there my name is Brad';
 const tags = 'web design,web development,programming';
 
@@ -92,7 +92,7 @@ val = firstName + ' ' + lastName;
 val = 'Brad ';
 val += 'Traversy';
 
-val = 'Hello, my name is ' + firstName + ' and I am ' + age;
+// val = 'Hello, my name is ' + firstName + ' and I am ' + age;
 
 // Escaping
 val =  'That\'s awesome, I can\'t wait';
@@ -136,3 +136,41 @@ val = str.replace('Brad', 'Jack');
 val = str.includes('foo');
 
 console.log(val);
+
+
+//TEMPLATE LITERALS
+
+const name = 'John';
+const age = 31;
+const job = 'Web Developer';
+const city = 'Miami';
+let html;
+
+// Without template strings (es5)
+html = '<ul><li>Name: ' + name + '</li><li>Age: ' + age + ' </li><li>Job: '+ job+ ' </li><li>City: '+ city +' </li></ul>';
+
+html = '<ul>' +
+       '<li>Name: ' + name + '</li>' +
+       '<li>Age: ' + age + '</li>' +
+       '<li>Job: ' + job + '</li>' +
+       '<li>City: ' + city + '</li>' +
+       '</ul>';
+
+function hello(){
+  return 'hello';
+}
+
+// With template strings (es6)
+html = `
+  <ul>
+    <li>Name: ${name}</li>
+    <li>Age: ${age}</li>
+    <li>Job: ${job}</li>
+    <li>City: ${city}</li>
+    <li>${2 + 2}</li>
+    <li>${hello()}</li>
+    <li>${age > 30 ? 'Over 30' : 'Under 30'}</li>
+  </ul>
+`;
+
+document.body.innerHTML = html;
