@@ -405,17 +405,17 @@ const age = 70;
 
 const color = 'yellow';
 
-switch(color){
-  case 'red':
-    console.log('color is red');
-    break;
-  case 'blue':
-    console.log('Color is blue');
-    break;
-  default:
-    console.log('color is not red or blue');
-    break;
-}
+// switch(color){
+//   case 'red':
+//     console.log('color is red');
+//     break;
+//   case 'blue':
+//     console.log('Color is blue');
+//     break;
+//   default:
+//     console.log('color is not red or blue');
+//     break;
+// }
 
 let day; 
 
@@ -443,4 +443,55 @@ switch(new Date().getDay()){
     break;
 }
 
-console.log(`Today is ${day}`);
+// console.log(`Today is ${day}`);
+
+
+//Function Declarations & Expressions
+
+// FUNCTION DECLARATIONS
+
+// es6
+function greet(firstName = 'John', lastName = 'Doe'){
+  //by default if we haven't any param when function is calling(es5)
+  // if(typeof firstName === 'undefined'){firstName = 'John'}
+  // if(typeof lastName === 'undefined'){lastName = 'Doe'}
+
+  // console.log('Hello');
+  return 'Hello ' + firstName + ' ' + lastName;
+}
+
+// console.log(greet());
+
+// FUNCTION EXPRESSIONS
+
+const square = function(x){
+  return x*x;
+};
+
+// console.log(square(8));
+
+
+// IMMIDIATLEY INVOKABLE FUNCTION EXPRESSIONS - IIFEs
+
+// (function(name){
+//   console.log('Hello ' + name);
+// })('Brad');
+
+// PROPERTY METHODS
+
+const todo = {
+  add: function(){
+    console.log('Add todo..');
+  },
+  edit: function(id){
+    console.log(`Edit todo ${id}`);
+  }
+}
+
+todo.delete = function(){
+  console.log('Delete todo...');
+}
+
+todo.add();
+todo.edit(22);
+todo.delete();
