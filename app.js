@@ -597,23 +597,23 @@ const cars = ['Ford', 'Chevy', 'Honda', 'Toyota'];
 // let val;
 
 // Outter height and width
-val = window.outerHeight;
-val = window.outerWidth;
+// val = window.outerHeight;
+// val = window.outerWidth;
 
-// Inner height and width
-val = window.innerHeight;
-val = window.innerWidth;
+// // Inner height and width
+// val = window.innerHeight;
+// val = window.innerWidth;
 
-// Scroll points
-val = window.scrollY;
-val = window.scrollX;
+// // Scroll points
+// val = window.scrollY;
+// val = window.scrollX;
 
 // Location Object
-val = window.location;
-val = window.location.hostname;
-val = window.location.port;
-val = window.location.href;
-val = window.location.search;
+// val = window.location;
+// val = window.location.hostname;
+// val = window.location.port;
+// val = window.location.href;
+// val = window.location.search;
 
 // Redirect
 //window.location.href = 'http://google.com';
@@ -626,17 +626,17 @@ val = window.location.search;
 // val = window.history.length;
 
 // Navigator Object
-val = window.navigator;
-val = window.navigator.appName;
-val = window.navigator.appVersion;
-val = window.navigator.userAgent;
-val = window.navigator.platform;
-val = window.navigator.vendor;
-val = window.navigator.language;
+// val = window.navigator;
+// val = window.navigator.appName;
+// val = window.navigator.appVersion;
+// val = window.navigator.userAgent;
+// val = window.navigator.platform;
+// val = window.navigator.vendor;
+// val = window.navigator.language;
 
 
 
-console.log(val);
+// console.log(val);
 
 // Global Scope
 var a = 1;
@@ -665,3 +665,48 @@ const c = 3;
 // }
 
 console.log('Global Scope: ', a, b, c);
+
+
+
+//DOM
+
+let val;
+
+val = document;
+val = document.all;
+val = document.all[2];
+val = document.all.length;
+val = document.head;
+val = document.body;
+val = document.doctype;
+val = document.domain;
+val = document.URL;
+val = document.characterSet;
+val = document.contentType;
+
+val = document.forms;
+val = document.forms[0];
+val = document.forms[0].id;
+val = document.forms[0].method;
+val = document.forms[0].action;
+
+val = document.links;
+val = document.links[0];
+val = document.links[0].id;
+val = document.links[0].className;
+val = document.links[0].classList[0];
+
+val = document.images;
+
+val = document.scripts;
+val = document.scripts[2].getAttribute('src');
+
+let scripts = document.scripts;
+
+let scriptsArr = Array.from(scripts);
+
+scriptsArr.forEach(function(script) {
+  console.log(script.getAttribute('src'));
+});
+
+console.log(val);
