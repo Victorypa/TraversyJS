@@ -669,6 +669,7 @@ console.log('Global Scope: ', a, b, c);
 
 
 //DOM
+// test
 
 let val;
 
