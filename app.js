@@ -419,29 +419,29 @@ const color = 'yellow';
 
 let day; 
 
-switch(new Date().getDay()){
-  case 0:
-    day = 'Sunday';
-    break;
-  case 1:
-    day = 'Monday';
-    break;
-  case 2:
-    day = 'Tuesday';
-    break;
-  case 3:
-    day = 'Wednesday';
-    break;
-  case 4:
-    day = 'Thursday';
-    break;
-  case 5:
-    day = 'Friday';
-    break;
-  case 6:
-    day = 'Saturday';
-    break;
-}
+// switch(new Date().getDay()){
+//   case 0:
+//     day = 'Sunday';
+//     break;
+//   case 1:
+//     day = 'Monday';
+//     break;
+//   case 2:
+//     day = 'Tuesday';
+//     break;
+//   case 3:
+//     day = 'Wednesday';
+//     break;
+//   case 4:
+//     day = 'Thursday';
+//     break;
+//   case 5:
+//     day = 'Friday';
+//     break;
+//   case 6:
+//     day = 'Saturday';
+//     break;
+// }
 
 // console.log(`Today is ${day}`);
 
@@ -1040,13 +1040,13 @@ const c = 3;
 //   document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 40)`;
 // }
 
-const form = document.querySelector('form');
-const taskInput = document.getElementById('task');
-const heading = document.querySelector('h5');
-const select = document.querySelector('select');
+// const form = document.querySelector('form');
+// const taskInput = document.getElementById('task');
+// const heading = document.querySelector('h5');
+// const select = document.querySelector('select');
 
 // Clear input
-taskInput.value = '';
+// taskInput.value = '';
 
 // form.addEventListener('submit', runEvent);
 
@@ -1126,8 +1126,8 @@ taskInput.value = '';
 // LOCAL & SESSION STORAGE
 
 // // set local storage item
-localStorage.setItem('name', 'John');
-localStorage.setItem('age', '30');
+// localStorage.setItem('name', 'John');
+// localStorage.setItem('age', '30');
 
 // // set session storage item
 // sessionStorage.setItem('name', 'Beth');
@@ -1144,28 +1144,52 @@ localStorage.setItem('age', '30');
 
 //  console.log(name, age);
 
-document.querySelector('form').addEventListener('submit', function(e){
-  const task = document.getElementById('task').value;
+// document.querySelector('form').addEventListener('submit', function(e){
+//   const task = document.getElementById('task').value;
 
-  let tasks;
+//   let tasks;
 
-  if(localStorage.getItem('tasks') === null) {
-    tasks = [];
-  } else {
-    tasks = JSON.parse(localStorage.getItem('tasks'));
+//   if(localStorage.getItem('tasks') === null) {
+//     tasks = [];
+//   } else {
+//     tasks = JSON.parse(localStorage.getItem('tasks'));
+//   }
+
+//   tasks.push(task);
+
+//   localStorage.setItem('tasks', JSON.stringify(tasks));
+
+//   alert('Task saved');
+
+//   e.preventDefault();
+// });
+
+// const tasks = JSON.parse(localStorage.getItem('tasks'));
+
+// tasks.forEach(function(task){
+//   console.log(task);
+// });
+
+// CONSTRUCTORS & THE 'THIS' KEYWORD
+
+
+
+// Person constructor
+function Person(name, dob) {
+  this.name = name;
+  // this.age = age;
+  this.birthday = new Date(dob);
+  this.calculateAge = function(){
+    const diff =  Date.now() - this.birthday.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
+}
 
-  tasks.push(task);
+// const brad = new Person('Brad', 36);
+// const john = new Person('John', 30);
 
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+// console.log(john.age);
 
-  alert('Task saved');
-
-  e.preventDefault();
-});
-
-const tasks = JSON.parse(localStorage.getItem('tasks'));
-
-tasks.forEach(function(task){
-  console.log(task);
-});
+const brad = new Person('Brad', '9-10-1981');
+console.log(brad.calculateAge());
