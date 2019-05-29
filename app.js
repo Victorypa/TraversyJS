@@ -4,13 +4,13 @@ let val;
 
 // Number to string
 val = String(555);
-val = String(4+4);
+val = String(4 + 4);
 // Bool to string
 val = String(true);
 // // Date to string
 val = String(new Date());
 // // Array to string
-val = String([1,2,3,4]);
+val = String([1, 2, 3, 4]);
 
 // // toString()
 val = (5).toString();
@@ -22,7 +22,7 @@ val = Number(true);
 val = Number(false);
 val = Number(null);
 val = Number('hello');
-val = Number([1,2,3]);
+val = Number([1, 2, 3]);
 
 val = parseInt('100.30');
 val = parseFloat('100.30');
@@ -64,8 +64,8 @@ val = Math.floor(2.8);
 val = Math.sqrt(64);
 val = Math.abs(-3);
 val = Math.pow(8, 2);
-val = Math.min(2,33,4,1,55,6,3,-2);
-val = Math.max(2,33,4,1,55,6,3,-2);
+val = Math.min(2, 33, 4, 1, 55, 6, 3, -2);
+val = Math.max(2, 33, 4, 1, 55, 6, 3, -2);
 val = Math.random();
 
 val = Math.floor(Math.random() * 20 + 1);
@@ -95,7 +95,7 @@ val += 'Traversy';
 // val = 'Hello, my name is ' + firstName + ' and I am ' + age;
 
 // Escaping
-val =  'That\'s awesome, I can\'t wait';
+val = 'That\'s awesome, I can\'t wait';
 
 // Length
 val = firstName.length;
@@ -122,7 +122,7 @@ val = firstName.charAt(firstName.length - 1);
 val = firstName.substring(0, 4);
 
 // slice()
-val = firstName.slice(0,4);
+val = firstName.slice(0, 4);
 val = firstName.slice(-3);
 
 // split()
@@ -179,11 +179,14 @@ val = str.includes('foo');
 
 //Create some arrays;
 
-const numbers = [43,56,33,23,44,36,5];
-const numbers2 = new Array(22,45,33,76,54);
+const numbers = [43, 56, 33, 23, 44, 36, 5];
+const numbers2 = new Array(22, 45, 33, 76, 54);
 
 const fruit = ['Apple', 'Banana', 'Orange', 'Pear'];
-const mixed = [22, 'Hello', true, undefined, null, {a:1, b:1}, new Date()];
+const mixed = [22, 'Hello', true, undefined, null, {
+  a: 1,
+  b: 1
+}, new Date()];
 
 // let val; 
 
@@ -221,12 +224,12 @@ val = fruit.sort();
 val = numbers.sort();
 
 // Use the "compare function"
-val = numbers.sort(function(x, y){
+val = numbers.sort(function (x, y) {
   return x - y;
 });
 
 // Reverse sort
-val = numbers.sort(function(x, y){
+val = numbers.sort(function (x, y) {
   return y - x;
 });
 
@@ -417,7 +420,7 @@ const color = 'yellow';
 //     break;
 // }
 
-let day; 
+let day;
 
 // switch(new Date().getDay()){
 //   case 0:
@@ -451,7 +454,7 @@ let day;
 // FUNCTION DECLARATIONS
 
 // es6
-function greet(firstName = 'John', lastName = 'Doe'){
+function greet(firstName = 'John', lastName = 'Doe') {
   //by default if we haven't any param when function is calling(es5)
   // if(typeof firstName === 'undefined'){firstName = 'John'}
   // if(typeof lastName === 'undefined'){lastName = 'Doe'}
@@ -464,8 +467,8 @@ function greet(firstName = 'John', lastName = 'Doe'){
 
 // FUNCTION EXPRESSIONS
 
-const square = function(x){
-  return x*x;
+const square = function (x) {
+  return x * x;
 };
 
 // console.log(square(8));
@@ -990,7 +993,7 @@ const c = 3;
 //   val = e.target.className;
 //   val = e.target.classList;
 
-  
+
 //   // Event type
 //   val = e.type;
 
@@ -1309,7 +1312,7 @@ const c = 3;
 // // Costumer constructor
 // function Customer(firstName, lastName, phone, membership) {
 //   Person.call(this, firstName, lastName);
-   
+
 //   this.phone = phone;
 //   this.membership = membership;
 // }
@@ -1391,31 +1394,85 @@ const c = 3;
 // console.log(mary);
 // console.log(Person.addNumbers(1,2));
 
-class Person {
-  constructor(firstName, lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+// class Person {
+//   constructor(firstName, lastName) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//   }
+//   greeting() {
+//     return `Hello there ${this.firstName} ${this.lastName}`;
+//   }
+// }
+
+// class Customer extends Person {
+//   constructor(firstName, lastName, phone, membership) {
+//     super(firstName, lastName,);
+//     this.phone = phone;
+//     this.membership = membership;  
+//   }
+
+//   static getMembershipCost() {
+//     return 500;
+//   }
+// }
+
+// const john = new Customer('John', 'Doe', '555-555-5555', 'Standard');
+
+// console.log(john.greeting());
+
+
+// console.log(Customer.getMembershipCost());
+
+document.getElementById('button').addEventListener('click', loadData);
+
+function loadData() {
+  // Create an XHR Object
+  const xhr = new XMLHttpRequest();
+
+  // OPEN
+  xhr.open('GET', 'data.txt', true);
+
+  // console.log('READYSTATE', xhr.readyState);
+
+    // Optional - Used for spinners/loaders
+    xhr.onprogress = function(){
+      console.log('READYSTATE', xhr.readyState);
+    }
+
+  xhr.onload = function () {
+    console.log('READYSTATE', xhr.readyState);
+    if (this.status === 200) {
+      // console.log(this.responseText);
+      document.getElementById('output').innerHTML = `<h1>${this.responseText}</h1>`;
+    }
   }
-  greeting() {
-    return `Hello there ${this.firstName} ${this.lastName}`;
+
+  // xhr.onreadystatechange = function() {
+  //   console.log('READYSTATE', xhr.readyState);
+  //   if(this.status === 200 && this.readyState === 4) {
+  //     console.log(this.responseText);
+
+  //   }
+  // }
+
+  xhr.onerror = function() {
+    console.log('Request error...');
   }
+
+  xhr.send();
+
+
+
+  // readyState Values
+  // 0: request not initialized 
+  // 1: server connection established
+  // 2: request received 
+  // 3: processing request 
+  // 4: request finished and response is ready
+
+
+  // HTTP Statuses
+  // 200: "OK"
+  // 403: "Forbidden"
+  // 404: "Not Found"
 }
-
-class Customer extends Person {
-  constructor(firstName, lastName, phone, membership) {
-    super(firstName, lastName,);
-    this.phone = phone;
-    this.membership = membership;  
-  }
-
-  static getMembershipCost() {
-    return 500;
-  }
-}
-
-const john = new Customer('John', 'Doe', '555-555-5555', 'Standard');
-
-console.log(john.greeting());
-
-
-console.log(Customer.getMembershipCost());
